@@ -4,8 +4,9 @@ type Props = {}
 
 const page = (props: Props) => {
   return (
-    <div className="flex justify-center items-center">
-      <Button>Click Here</Button>
+    <div className="flex min-h-screen home-wrapper">
+
+      Home
     </div>
   )
 }
