@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -7,25 +5,11 @@ import NavItems from './Navitems'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { Button } from './ui/button'
 import UserDropdown from './UserDropdown'
-import { useRouter } from 'next/navigation'
 
 type Props = {}
-type User = {
-    name: string,
-    email: string,
 
-}
 const Header = (props: Props) => {
-    const router = useRouter();
-
-    const handleSignOut = async()=>{
-        router.push("/sign-in");
-    }
-
-    const user : User = {
-        name: "Saksham Verma",
-        email:"sakshamverma1000@gmail.com"
-    }
+    
 
   return (
     <header className='sticky top-0 header'>
