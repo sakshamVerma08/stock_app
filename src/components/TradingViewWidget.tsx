@@ -9,7 +9,7 @@ type TradingViewWidgetProps = {
   title?: string,
   scriptURL: string,
   config: Record<string,unknown>,
-  className: string,
+  className?: string,
   height?: number,
 }
 
