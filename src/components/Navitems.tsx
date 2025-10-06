@@ -27,7 +27,7 @@ const NavItems = (props: Props) => {
             
             <Link href = {items.href} className= {`hover:text-yellow-500 transition-colors ${isActive(items.href) ? 'text-gray-100' : ''} `}>
             
-                {items.title}
+                {items.label}
             </Link>
             
             </li>
