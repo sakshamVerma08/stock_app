@@ -22,6 +22,7 @@ declare global {
         required?: boolean;
     };
 
+    
     type FormInputProps = {
         name: string;
         label: string;
@@ -45,7 +46,7 @@ declare global {
         placeholder: string;
         options: readonly Option[];
         control: Control;
-        error?: FieldError;
+        errors?: FieldError;
         required?: boolean;
     };
 
@@ -218,7 +219,27 @@ declare global {
 }
 
 
+declare module 'react-select-country-list'{
+
+    type Country = {
+        value: string,
+        label: string,
+    }
 
 
+    type CountryList = {
+
+        getData: ()=>Country[];
+        getLabel: (label: string)=>string;
+        getValue: (value: string)=>string;
+        getLabels: ()=>string[];
+        getValues: ()=>string[];
+        setNative: (native: boolean)=>CountryList;
+        getNative: ()=>boolean;
+
+    }
+}
+
+export const countryList;
 
 export {};

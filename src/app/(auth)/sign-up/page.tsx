@@ -1,6 +1,9 @@
 'use client';
+import CountrySelectField from '@/components/forms/CountrySelectField';
+import SelectField from '@/components/forms/SelectField';
 import InputField from '@/components/forms/inputField';
 import { Button } from '@/components/ui/button';
+import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants';
 import React from 'react'
 import { SubmitErrorHandler, useForm } from 'react-hook-form';
 
@@ -48,8 +51,61 @@ const SignUp = () => {
             label = "Full Name"
             placeholder = "John Doe"
             register = {register}
-            errors = {errors.fullName}
+            error = {errors.fullName}
             validation = {{required:'Full name is required', minLength: 2}}/>
+
+            <InputField
+            name = "email"
+            label = "Email"
+            placeholder = "johndoe@email.com"
+            register = {register}
+            error = {errors.email}
+            validation = {{required:"Email is required" , pattern: '/^\w+@\w+\.\w+$', message: "Email address is required" }}/>
+
+            <InputField
+            name = "password"
+            label = "Password"
+            type='password'
+            placeholder = "Enter a strong password"
+            register = {register}
+            error = {errors.password}
+            validation = {{required:'Password is required', minLength: 6}}/>
+
+
+            <CountrySelectField
+            name = "country"
+            label = "Country"
+            control = {control}
+            error = {errors.country}
+                       
+            />
+
+            <SelectField
+            name="investmentGoals"
+            placeholder='Select your investment goal'
+            label="Investment Goals"
+            options = {INVESTMENT_GOALS}
+            errors = {errors.investmentGoals}
+            control = {control}
+            required/>
+
+            <SelectField
+            name="riskTolerance"
+            label="Risk Tolerance"
+            placeholder='Select your Risk Level'
+            options = {RISK_TOLERANCE_OPTIONS}
+            errors = {errors.riskTolerance}
+            control = {control}
+            required/>
+
+            <SelectField
+            name="preferredIndustry"
+            label="Preferred Industry"
+            placeholder='Select your Preferred Industry'
+            options = {PREFERRED_INDUSTRIES}
+            errors = {errors.preferredIndustry}
+            control = {control}
+            required/>
 
             <Button type = "submit" disabled = {isSubmitting} className='yellow-btn w-full mt-5'>
 
