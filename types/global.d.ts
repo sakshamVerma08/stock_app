@@ -4,6 +4,11 @@ declare global {
         password: string;
     };
 
+    type Country = {
+        label: string,
+        value: string,
+    }
+
     type SignUpFormData = {
         fullName: string;
         email: string;
@@ -236,10 +241,16 @@ declare module 'react-select-country-list'{
         getValues: ()=>string[];
         setNative: (native: boolean)=>CountryList;
         getNative: ()=>boolean;
+        getEmpty: ()=>string;
+        setEmpty: (empty:string)=>CountryList;
+        native: boolean;
+        empty: string;
 
     }
+
+    function countryList(): CountryList;
+    export = countryList;
 }
 
-export const countryList;
 
 export {};
