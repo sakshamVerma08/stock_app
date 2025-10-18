@@ -1,4 +1,11 @@
 declare global {
+
+    let mongooseCache :{
+        conn: typeof mongoose | null;
+        promise: Promise<typeof mongoose> | null;
+    }
+
+
     type SignInFormData = {
         email: string;
         password: string;
