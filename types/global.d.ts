@@ -1,6 +1,6 @@
 declare global {
 
-    let mongooseCache :{
+    type mongooseCache ={
         conn: typeof mongoose | null;
         promise: Promise<typeof mongoose> | null;
     }

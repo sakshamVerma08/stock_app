@@ -3,11 +3,10 @@ import mongoose from "mongoose";
 const MONGODB_URI = process.env.MONGODB_URI;
 
 
-let cached = mongooseCache;
+const globalForMongoose = globalThis as unknown as {mongooseCache?: mongooseCache}
 
-if(!cached){
-    cached = {conn: null, promise: null};
-}
+const cached = (globalForMongoose.mongooseCache ??= {conn:null, promise:null});
+
 
 
 export const connectToDB = async()=>{
