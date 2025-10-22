@@ -8,7 +8,7 @@ import UserDropdown from './UserDropdown'
 
 type Props = {}
 
-const Header = (props: Props) => {
+const Header = ({user}: {user:User}) => {
     
 
   return (
@@ -25,7 +25,7 @@ const Header = (props: Props) => {
 
             </nav>
             {/* User Dropdown */}
-            <UserDropdown/>
+            <UserDropdown user = {user}/>
 
         </div>
     </header>

@@ -1,0 +1,16 @@
+# Environment Variables are not to be included in Docker Image of our app
+*.env*
+# Dependencies are not to be pre-included, as they will be installed again from scratch.
+node_modules/
+*.log
+
+# Build artefacts are not to be pre-included, as the Dockerfile will build the app from scratch.
+dist/
+
+# Git Files like .git folder and gitignore are of no use in the Image.
+.gitignore
+.git
+
+# Dockerfiles are of no use in the Docker build context.
+Dockerfile*
+docker-compose*
