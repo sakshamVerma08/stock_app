@@ -23,7 +23,7 @@ type User = {
     email: string,
 
 }
-const UserDropdown = (props: Props) => {
+const UserDropdown = ({user}:{user:User}) => {
 
   const router = useRouter();
 
@@ -31,10 +31,7 @@ const UserDropdown = (props: Props) => {
         router.push("/sign-in");
     }
 
-    const user : User = {
-        name: "Saksham Verma",
-        email:"sakshamverma1000@gmail.com"
-    }
+
   return (
     <DropdownMenu>
 

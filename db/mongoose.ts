@@ -18,7 +18,7 @@ export const connectToDB = async()=>{
 
         cached.promise = mongoose.connect(MONGODB_URI, {
             bufferCommands:false
-        })
+        });
     }
 
 
@@ -32,8 +32,10 @@ export const connectToDB = async()=>{
         throw err;
     }
 
-
     console.log(`✅Connected to DB in ${process.env.NODE_ENV} environment successfully`);
+
+    return {conn:cached.conn};
+    
 }
 
 
