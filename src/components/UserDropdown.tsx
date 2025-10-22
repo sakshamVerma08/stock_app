@@ -16,6 +16,8 @@ import { Button } from './ui/button'
 import { useRouter } from 'next/navigation';
 import { LogOut } from 'lucide-react';
 import NavItems from './Navitems';
+import { toast } from 'sonner';
+import { signOut } from '@/lib/actions/auth-actions';
 
 type Props = {}
 type User = {
@@ -28,7 +30,21 @@ const UserDropdown = ({user}:{user:User}) => {
   const router = useRouter();
 
     const handleSignOut = async()=>{
-        router.push("/sign-in");
+
+        try{
+
+
+          const result = await signOut();
+
+
+          if(result.success){
+          router.push("/sign-in");
+          }
+
+        }catch(err){
+          console.error(err);
+          toast("Error while Logging out");
+        }
     }
 
 

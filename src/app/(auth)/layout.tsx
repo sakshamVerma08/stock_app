@@ -1,8 +1,18 @@
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import React from 'react'
 
-const AuthLayout = ({children}: {children: React.ReactNode}) => {
+const AuthLayout = async ({children}: {children: React.ReactNode}) => {
+
+    // Checking if the session cookie exists or not. If it does exist, then redirect the authenticated user to the "/" route.
+    const session = await auth.api.getSession({headers: await headers()});
+
+    if(session?.user) redirect('/');
+
+
   return (
     <main className='auth-layout'>
 
